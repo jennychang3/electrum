@@ -1625,7 +1625,7 @@ class ElectrumWindow(QMainWindow):
             if len(accounts) > 1:
                 name = self.wallet.get_account_name(k)
                 c,u = self.wallet.get_account_balance(k)
-                account_item = TreeWidgetItem( [ name, '', self.format_amount(c+u), ''] )
+                account_item = TreeWidgetItem( [ name, '', self.format_amount(c+u), ''],False )
                 l.addTopLevelItem(account_item)
                 account_item.setExpanded(self.accounts_expanded.get(k, True))
                 account_item.setData(0, 32, k)
@@ -1636,14 +1636,14 @@ class ElectrumWindow(QMainWindow):
             for is_change in sequences:
                 if len(sequences) > 1:
                     name = _("Receiving") if not is_change else _("Change")
-                    seq_item = QTreeWidgetItem( [ name, '', '', '', ''] )
+                    seq_item = TreeWidgetItem( [ name, '', '', '', ''],False)
                     account_item.addChild(seq_item)
                     if not is_change:
                         seq_item.setExpanded(True)
                 else:
                     seq_item = account_item
 
-                used_item = QTreeWidgetItem( [ _("Used"), '', '', '', ''] )
+                used_item = TreeWidgetItem( [ _("Used"), '', '', '', ''],False)
                 used_flag = False
 
                 addr_list = account.get_addresses(is_change)
