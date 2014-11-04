@@ -1312,7 +1312,7 @@ class ElectrumWindow(QMainWindow):
             index[1]=0
 	else:
             index[1]=(index[1]+1)%2
-	    index[0]=logicalIndex
+	index[0]=logicalIndex
         self.wallet.add_sort(index,k)
 
     def create_addresses_tab(self):
