@@ -237,7 +237,7 @@ class MyTreeWidget(QTreeWidget):
 class TreeWidgetItem( QTreeWidgetItem ):
     def __init__(self, parent=None,sortable=True):
         QTreeWidgetItem.__init__(self, parent)
-	    self.sortable = sortable
+	self.sortable = sortable
 
     def __lt__(self, otherItem):
 	    column = self.treeWidget().sortColumn()
